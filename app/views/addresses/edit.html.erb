@@ -1,0 +1,17 @@
+<h2>Edit Address</h2>
+
+<%= form_for @address do |f| %>
+	<label>Street: </label> <br/>
+	<%= f.text_field :street, autofocus: true %> <br/>
+
+	<label>Pin: </label> <br/>
+	<%= f.number_field :pin %> <br/>
+
+	<label>City: </label> <br/>
+	<%= f.text_field :city %> <br/>
+
+	<label>Landmark: </label> <br/>
+	<%= f.text_field :landmark %> <br/>
+
+	<%= f.submit %> or <%= link_to "back", addresses_path %>
+<% end %>

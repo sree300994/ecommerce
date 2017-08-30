@@ -1,0 +1,12 @@
+<h2>Your Addresses</h2>
+
+<% @addresses.each do |address| %>
+	<p>NAME: <%= address.user_id %> </p>
+	<p>STREET: <%= address.street %> </p>
+	<p>PIN: <%= address.pin %> </p>
+	<p>CITY: <%= address.city %> </p>
+	<p>LANDMARK: <%= address.landmark %></p>
+
+	<p><%= link_to "show", address_path(address) %> </p>
+<% end %>
+<%= link_to "Add Address", new_address_path %>

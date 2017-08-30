@@ -1,0 +1,18 @@
+<h2>Your WishList</h2>
+
+<table border = "1">
+	<thead>
+		<tr>
+			<th> Sl No </th>
+			<th> Name </th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @wish_lists.each_with_index do |wish_list, index| %>
+			<tr>
+				<td><%= index + 1 %></td>
+				<td><%= wish_list.product.name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

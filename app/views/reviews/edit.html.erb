@@ -1,0 +1,12 @@
+<h2>Edit Review</h2>
+<%= form_for @review do |f| %>
+  <%= f.label :body %> <br/>
+  <%= f.text_area :body %> <br/>
+
+  <%= f.label :rating %> <br/>
+  <%= f.select :rating, (1..5).to_a %> <br/>
+
+  <% if current_user.id == @review.user_id || current_user.is_admin %>
+	  <%= f.submit %> <%= link_to "back", product_path %>
+  <% end %>
+<% end %>

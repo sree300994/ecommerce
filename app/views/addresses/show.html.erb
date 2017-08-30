@@ -1,0 +1,14 @@
+<h2><%= @address.user_id %></h2>
+
+<p>NAME: <%= @address.user_id %> </p>
+<p>STREET: <%= @address.street %> </p>
+<p>PIN: <%= @address.pin %> </p>
+<p>CITY: <%= @address.city %> </p>
+<p>LANDMARK: <%= @address.landmark %> </p>
+
+<%= link_to "edit", edit_address_path %>
+
+<%= link_to "delete", address_path(@address), method: :delete %>
+
+<%= link_to "back", addresses_path %>
+
