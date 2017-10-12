@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816120552) do
+ActiveRecord::Schema.define(version: 20171011121035) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id"
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20170816120552) do
     t.float    "price"
     t.text     "description"
     t.integer  "category_id"
-    t.boolean  "available"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "code"
     t.integer  "stock"
-    t.boolean  "cod_eligible", default: true
+    t.boolean  "cod_eligible",    default: true
+    t.integer  "sub_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(version: 20170816120552) do
     t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
     belongs_to :category
+    belongs_to :sub_category
     has_one :wish_list
     has_many :reviews
     has_many :cart_line_items
