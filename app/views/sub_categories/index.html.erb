@@ -1,0 +1,12 @@
+<h2>Listing Sub Categories</h2>
+
+<% if @sub_categories.empty? %>
+	<p>No Sub Categories Found</p>
+<% else %>
+	<% @sub_categories.each do |sub_category| %>
+		<li><%= sub_category.name %></li>
+	<% end %>
+<% end %>
+
+<%= link_to "Back", categories_path %>
+

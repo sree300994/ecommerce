@@ -1,15 +1,15 @@
 <h2>Listing Reviews</h2>
 
-	<ul>
-		<% @reviews.each do |review| %>
-			<li>
-				<p> USER:<%= review.user_id %> </p>
-				<p> PRODUCT:<%= review.product_id %> </p>
-				<p> BODY: <%= review.body %> </p>
-				<p> RATING:<%= review.rating %> </p>
-			</li>
-		<% end %>
-	</ul>
+<ul>
+	<% @reviews.each do |review| %>
+		<li>
+			<p> USER:<%= review.user_id %> </p>
+			<p> PRODUCT:<%= review.product_id %> </p>
+			<p> BODY: <%= review.body %> </p>
+			<p> RATING:<%= review.rating %> </p>
+		</li>
+	<% end %>
+</ul>
 
 <% if user_signed_in? && current_user.is_admin %>
 	<%= link_to "Add Review", new_review_path %>

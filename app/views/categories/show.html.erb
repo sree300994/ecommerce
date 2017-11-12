@@ -1,17 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @category.name %>
+  <h1>Name : <%= @category.name %></h1>
 </p>
 
-<h2>Listing Products (<%= @category.products.length %>)</h2>
-<ul>
-<!-- Product.where('category_id = ?',@category.id) -->
-	<% @category.products.each do |product| %>
-	<li><%= link_to product.name, product_path(product.id) %> <%= product.price %></li>
+<h2>Listing Sub Categories(<%= @category.sub_categories.length %>)</h2>
+
+<% @category.sub_categories.each do |sub_category| %>
+	<h3><%= link_to sub_category.name, sub_category_path(sub_category.id) %>(<%= sub_category.products.length %>)</h3>
+	<% if sub_category.products.empty? %>
+		<p>No Products Found</p>
+	<% else %>
+		<h4>Listing Products</h4>
+		<ul>
+			<% sub_category.products.each do |product| %>
+			<li><p>Name : <%= link_to product.name, product_path(product.id) %></p>
+				<p>Price : <%= product.price %></p>
+				<p>Reviews : <% product.reviews.each do |review| %>
+						<li><%= review.body %></li>
+					<% end %>
+				</p>
+			</li>
+			<% end %>
+		</ul>
 	<% end %>
-</ul>
+<% end %>
+<!-- Product.where('category_id = ?',@category.id) -->
+
 
 <% if user_signed_in? && current_user.is_admin %>
 	<%= link_to 'Edit', edit_category_path(@category) %> |

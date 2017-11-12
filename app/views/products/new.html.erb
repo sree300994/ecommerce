@@ -2,7 +2,7 @@
 
 <%= form_for @product do |f| %>
    
-   <% if @product.errors.any? %>
+   	<% if @product.errors.any? %>
       <h3>These errors prohibitted the form from being saved : </h3>
       <ul>
       	<% @product.errors.full_messages.each do |msg| %>

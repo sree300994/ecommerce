@@ -1,7 +1,7 @@
 <h2>Your Addresses</h2>
 
 <% @addresses.each do |address| %>
-	<p>NAME: <%= address.user_id %> </p>
+	<p>NAME: <%= address.user.username.capitalize %> </p>
 	<p>STREET: <%= address.street %> </p>
 	<p>PIN: <%= address.pin %> </p>
 	<p>CITY: <%= address.city %> </p>

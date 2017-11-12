@@ -20,13 +20,12 @@
     <%= f.text_field :mobile %>
     <span id="mobileError"></span>
   </div>
-   <div class="field">
+
+  <div class="field">
     <%= f.label :gender %><br />
     <%= f.radio_button :gender, "male" %>male
     <%= f.radio_button :gender, "female" %>female
-
   </div>
-
 
   <div class="field">
     <%= f.label :password %>
@@ -52,10 +51,9 @@
 
 <script>
   var alphabetFormatter = /^[A-Za-z]+$/;
-var emailFormatter = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-  
-var mobileFormatter = /^[0-9]+$/;
-var passwordFormatter = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+  var emailFormatter = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+  var mobileFormatter = /^[0-9]+$/;
+  var passwordFormatter = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 
   var usernameHandle = document.getElementById('user_username');
   var emailHandle = document.getElementById('user_email');
@@ -139,6 +137,7 @@ var passwordFormatter = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
       resetErrorMsg(emailErrorHandle);
     }
   }, false);
+  
   mobileHandle.addEventListener('blur',function(){
     if (mobileHandle.value== "") {
       mobileErrorHandle.innerHTML = "Cant be blank";

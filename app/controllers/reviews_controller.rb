@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!, except: [:index]
 
 	def index
 		@reviews = current_user.reviews
@@ -9,9 +9,14 @@ before_action :authenticate_user!, except: [:index, :show]
 		@review = Review.new(review_params)
 		@review.user_id = current_user.id
 		# binding.pry
-		if @review.save
-			Notification.review_confirmation(@review).deliver!
-			redirect_to :back, notice: "Successfully created the Review"
+		respond_to do |format|
+			if @review.save
+				# Notification.review_confirmation(@review).deliver_now!
+				format.html { redirect_to :back, notice: "Successfully created the Review" }
+				format.js
+			else
+				format.js
+			end
 		end
 	end
 
@@ -31,7 +36,10 @@ before_action :authenticate_user!, except: [:index, :show]
 	def destroy
 		@review = Review.find(params[:id])
 		@review.destroy
-		redirect_to product_path, notice: "Successfully destroyed the product"
+		respond_to do |format|
+			format.html { redirect_to product_path(@review.product), notice: "Successfully destroyed the product" }
+			format.js
+		end
 	end
 	def review_params
 		params.require(:review).permit(:product_id, :user_id, :body, :rating)

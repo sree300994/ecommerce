@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 		@order.user_id	= current_user.id
 		@order.order_number = "DCT#{Random.rand(1000)}"
 		@order.save
-		Notification.order_notification(@order).deliver!
+		# Notification.order_notification(@order).deliver!
 		redirect_to orders_path, notice: "Your order has been placed"
 	end
 end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vendors(<span id="count"><%= @vendors.count %></span>)</h1>
+<div id="vendorTable">
+  <%= render 'table' %>
+</div>
+
+<br>
+
+<h2>Add Vendor</h2>
+
+<span id="errors"></span>
+
+<%= render 'form' %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :vendors
   get 'ajax_calls/find_sub_categories'
   get 'ajax_calls/category_products'
   get 'ajax_calls/check_email_taken'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   get 'home/contact'
 
   resources :categories
+  resources :sub_categories
   resources :cart_line_items
   resources :reviews
   resources :wish_lists

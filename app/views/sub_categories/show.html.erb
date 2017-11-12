@@ -1,0 +1,19 @@
+<h1><%= @sub_category.name %></h1>
+
+<% if @sub_category.products.empty? %>
+	<p>No Products Found</p>
+<% else %>
+	<h2>Listing Products(<%= @sub_category.products.length %>)</h2>
+	<ul>
+		<% @sub_category.products.each do |product| %>
+			<li>
+				<h3><%= product.name %></h3>
+				<p>Reviews : <% product.reviews.each do |review| %>
+						<ul><li><%= review.body %></li></ul>
+					<% end %>
+				</p>
+			</li>
+		<% end %>
+	</ul>
+
+<% end %>
